@@ -1,4 +1,4 @@
-'use strict';
+ 'use strict';
 
 /*
 const option={
@@ -9,8 +9,8 @@ const option={
 }
 
 */
-function createElement(tag, option = {}, ...children) {
-    const elem = document.createElement(tag);
+function createElement(teg, option = {}, ...children) {
+    const elem = document.createElement(teg);
 
     console.log(option);
     if(option.classNames) {

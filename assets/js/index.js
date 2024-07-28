@@ -7,7 +7,7 @@ const h1 = createElement(
   {
     classNames: ["actors-heading", "upper-case"],
     attributes: {
-      title: "qwerty",
+      title: "mainTitle",
       "data-key": 22,
     },
   },
@@ -18,12 +18,32 @@ fetch("/assets/data.json")
   .then((response) => response.json())
   .then((data) => {
     const articles = data.map((user) => {
-        const img = createElement('img', {
-            attributes: { src: user.profilePicture},
-            events: {'error': ({target})=>{target.remove()}}
-        })
-       return createElement("article", { classNames: ["actor"] }, user.firstName, img)
+      const nameActors = createElement(
+        "p",
+        { classNames: ["actor-name"] },
+        `${user.firstName} ${user.lastName}`
+      );
+
+      const img = createElement("img", {
+        classNames: ["actor-img-block"],
+        attributes: { src: user.profilePicture },
+        events: {
+          error: ({ target }) => {
+            target.remove();
+          },
+        },
+      });
+
+      const blockphoto = createElement(
+        "div",
+        { },
+        img
+      );
+
+      // const socialNetworks = createElement("div", {}, ...user.contacts)
+      return createElement("article", { classNames: ["actor"] }, blockphoto, nameActors, /*socialNetworks*/);
     });
+
     const section = createElement(
       "section",
       { classNames: ["actors"] },
