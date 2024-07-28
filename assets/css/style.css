@@ -1,0 +1,20 @@
+.actors {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 450px;
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    background-color: aqua;
+    /* height: 100px; */
+}
+.actors-heading{
+    width: 100%;
+    text-align: center;
+}
+.actor{
+    min-width: 350px;
+    max-width: 450px;
+    width: auto;
+    text-align: center;
+}
