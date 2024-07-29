@@ -18,6 +18,7 @@ fetch("/assets/data.json")
   .then((response) => response.json())
   .then((data) => {
     const articles = data.map((user) => {
+      // console.log(user.contacts);
       const nameActors = createElement(
         "p",
         { classNames: ["actor-name"] },
@@ -29,19 +30,65 @@ fetch("/assets/data.json")
         attributes: { src: user.profilePicture },
         events: {
           error: ({ target }) => {
-            target.remove();
+            target.src = "/assets/img/noavatar.png";
           },
         },
       });
 
-      const blockphoto = createElement(
-        "div",
-        { },
-        img
-      );
+      const socialIcons = user.contacts.map((element) => {
 
-      // const socialNetworks = createElement("div", {}, ...user.contacts)
-      return createElement("article", { classNames: ["actor"] }, blockphoto, nameActors, /*socialNetworks*/);
+          if (element.match('facebook')) {
+            return createElement(
+              "a",
+              {
+                classNames: ["icons", "facebook"],
+                attributes: {
+                  href: element,
+                  target: "_blank",
+                },
+              },
+            );
+          }
+          if (element.match('instagram')) {
+            return createElement(
+              "a",
+              {
+                classNames: ["icons", "instagram"],
+                attributes: {
+                  href: element,
+                  target: "_blank",
+                },
+              },
+            );
+          }
+          if (element.match('twitter')) {
+            return createElement(
+              "a",
+              {
+                classNames: ["icons", "twitter"],
+                attributes: {
+                  href: element,
+                  target: "_blank",
+                },
+              },
+            );
+          }
+
+      });
+
+      // const socialNetworks = createElement("div", {}, socialIcons);
+
+      // createElement("div", {}, socialIcons);
+
+      const socialNetworks = createElement("div", {classNames: ["socialNetworks"]}, ...socialIcons)
+
+      return createElement(
+        "article",
+        { classNames: ["actor"] },
+        img,
+        nameActors,
+        socialNetworks
+      );
     });
 
     const section = createElement(
