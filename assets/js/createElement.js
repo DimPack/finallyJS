@@ -28,3 +28,26 @@ function createElement(teg, option = {}, ...children) {
   elem.append(...children);
   return elem;
 }
+
+function addClickList(user, listNames, ul) {
+  const name = `${user.firstName} ${user.lastName}`;
+  if (!listNames.includes(name)) {
+
+    listNames.push(name);
+    renderList(listNames, ul)
+      
+  } 
+return listNames;
+}
+
+function renderList(listNames, ul) {
+  console.log(listNames);
+  const listChoosedNames = listNames.map((name) => {
+    console.log(name);
+    return createElement("li", { classNames: ["li"] }, name);
+  });
+  console.log(listChoosedNames);
+  ul.innerHTML = '';
+  ul.append(...listChoosedNames)
+
+}
