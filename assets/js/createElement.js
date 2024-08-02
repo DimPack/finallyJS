@@ -32,22 +32,28 @@ function createElement(teg, option = {}, ...children) {
 function addClickList(user, listNames, ul) {
   const name = `${user.firstName} ${user.lastName}`;
   if (!listNames.includes(name)) {
-
     listNames.push(name);
-    renderList(listNames, ul)
-      
-  } 
-return listNames;
+    renderList(listNames, ul);
+  }
+  return listNames;
 }
 
 function renderList(listNames, ul) {
   console.log(listNames);
-  const listChoosedNames = listNames.map((name) => {
-    console.log(name);
-    return createElement("li", { classNames: ["li"] }, name);
+  const listChoosedNames = listNames.map((name, index) => {
+    const close = createElement("img", {
+      classNames: ["close"],
+      attributes: { src: "/assets/img/icon/close.svg" },
+      events: { click: () => deleteItemList(index) },
+    });
+    return createElement("li", { classNames: ["li"] }, name, close);
   });
   console.log(listChoosedNames);
-  ul.innerHTML = '';
-  ul.append(...listChoosedNames)
+  ul.innerHTML = "";
+  ul.append(...listChoosedNames);
+}
 
+function deleteItemList(item) {
+  listNames.splice(item, 1);
+  renderList(listNames, ul);
 }

@@ -1,25 +1,29 @@
 "use strict";
 
 const root = document.getElementById("root");
+const listNames = [];
 
 const h1 = createElement(
   "h1",
   {
     classNames: ["actors-heading", "upper-case"],
-    attributes: {
-      title: "mainTitle",
-      "data-key": 22,
-    },
   },
   "Actors"
 );
-const listNames = [];
 
+const h2 = createElement(
+  "h1",
+  {
+    classNames: ["actors-list", "upper-case"],
+  },
+  "List actors"
+);
 
 const ul = createElement("ul", {
   classNames: ["list"],
 });
 
+const blockList = createElement("div", { classNames: ["list-block"] }, h2, ul);
 
 fetch("/assets/data.json")
   .then((response) => response.json())
@@ -89,7 +93,7 @@ fetch("/assets/data.json")
       { classNames: ["actors"] },
       h1,
       articlsBlock,
-      ul
+      blockList
     );
     root.append(section);
   })
