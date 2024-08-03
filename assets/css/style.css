@@ -15,12 +15,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-<<<<<<< HEAD
-  background: linear-gradient(to bottom, #ffffff 50%,#fb666a 50%);
-=======
+
   background: linear-gradient(to bottom, var(--secondary-color) 50%, var(--main-color) 50%);
   height: 100%;
->>>>>>> dev
 }
 .articlsBlock {
   display: flex;
@@ -114,11 +111,7 @@
 }
 
 .twitter {
-<<<<<<< HEAD
-  background: no-repeat #fb666a center url('/assets/img/icon/twitter.svg');
-=======
   background: no-repeat var(--main-color) center url('/assets/img/icon/twitter.svg');
->>>>>>> dev
 }
 
 
@@ -149,11 +142,8 @@
   padding: 10px;
   margin: 10px;
   font-size: 24px;
-<<<<<<< HEAD
-  background-color: white;
-=======
+
   background-color: var(--secondary-color);
->>>>>>> dev
   border-radius: 5px;
 }
 
