@@ -7,8 +7,8 @@ const option={
     style : {'title' : 'actors'},
     events : {'click', handleClick}
 }
-
 */
+
 function createElement(teg, option = {}, ...children) {
   const elem = document.createElement(teg);
 
@@ -39,7 +39,10 @@ function addClickList(user, listNames, ul) {
 }
 
 function renderList(listNames, ul) {
+<<<<<<< HEAD
   console.log(listNames);
+=======
+>>>>>>> dev
   const listChoosedNames = listNames.map((name, index) => {
     const close = createElement("img", {
       classNames: ["close"],
@@ -48,7 +51,10 @@ function renderList(listNames, ul) {
     });
     return createElement("li", { classNames: ["li"] }, name, close);
   });
+<<<<<<< HEAD
   console.log(listChoosedNames);
+=======
+>>>>>>> dev
   ul.innerHTML = "";
   ul.append(...listChoosedNames);
 }
